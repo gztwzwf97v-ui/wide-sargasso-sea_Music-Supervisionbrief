@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wide Sargasso Sea — Music Supervision BEDROCK for Sarah Bridge</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+:root {
+  --deep: #050302;
+  --page: #EDE6D8;
+  --sub: #7B2D1A;
+  --bass: #D17236;
+  --low: #8E5024;
+  --ash: #948878;
+  --ghost: #BDB3A0;
+  --cream: #F0E9DB;
+  --signal: #4A6E7E;
+  --gold: #C49A3A;
+  --copper: #DC8E55;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background-color: var(--deep);
+  color: var(--page);
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 300;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: overlay;
+}
+
+.waveform-top {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background:
+    linear-gradient(90deg,
+      transparent 0%,
+      var(--sub) 12%,
+      var(--bass) 28%,
+      transparent 36%,
+      var(--copper) 48%,
+      var(--bass) 62%,
+      transparent 70%,
+      var(--sub) 84%,
+      transparent 100%);
+  z-index: 100;
+  opacity: 0.65;
+}
+
+.page { max-width: 820px; margin: 0 auto; padding: 90px 44px 140px; }
+
+.masthead {
+  border-top: 1px solid var(--sub);
+  padding-top: 52px;
+  margin-bottom: 72px;
+  animation: rise 1.2s ease both;
+}
+
+.date-line {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  color: var(--ash);
+  margin-bottom: 28px;
+  text-transform: uppercase;
+}
+
+.stamp {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bass);
+  margin-bottom: 32px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.stamp .confidential {
+  color: var(--gold);
+  border: 1px solid rgba(196,154,58,0.4);
+  padding: 4px 10px;
+  letter-spacing: 0.24em;
+}
+
+.doc-title {
+  font-size: clamp(2.2rem, 5.2vw, 3.9rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  font-style: italic;
+}
+
+.doc-title strong { font-weight: 600; font-style: normal; color: var(--bass); }
+
+.doc-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-top: 26px;
+  line-height: 1.8;
+}
+
+.rule-short { width: 44px; height: 1px; background: var(--low); margin: 36px 0; }
+
+.intro { margin-bottom: 72px; animation: rise 1.1s 0.15s ease both; }
+
+.to-line {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bass);
+  margin-bottom: 22px;
+}
+
+.intro p { font-size: 1.18rem; line-height: 1.92; color: var(--ghost); max-width: 660px; }
+.intro p + p { margin-top: 1.1em; }
+.intro em { color: var(--cream); }
+.intro strong { font-weight: 600; color: var(--cream); font-style: italic; }
+
+.intro a, .section-body a, .threads li a, .companion a, .private-ref a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(196,154,58,0.3);
+  transition: border-color 0.2s ease;
+}
+.intro a:hover, .section-body a:hover, .threads li a:hover, .companion a:hover, .private-ref a:hover { border-color: var(--gold); }
+
+.premise {
+  border-left: 3px solid var(--sub);
+  border-top: 1px solid rgba(123,45,26,0.3);
+  border-bottom: 1px solid rgba(123,45,26,0.3);
+  padding: 32px 36px;
+  margin: 0 0 64px;
+  background: rgba(123,45,26,0.05);
+  animation: rise 1.1s 0.25s ease both;
+}
+
+.premise .box-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bass);
+  margin-bottom: 18px;
+}
+
+.premise p { font-size: 1.1rem; line-height: 1.88; color: var(--cream); font-style: italic; }
+.premise p + p { margin-top: 1em; }
+.premise strong { font-style: normal; }
+
+.windward-orient {
+  margin-bottom: 64px;
+  padding: 24px 30px;
+  border: 1px solid rgba(196,154,58,0.3);
+  border-left: 2px solid var(--gold);
+  background: rgba(196,154,58,0.03);
+  animation: rise 1.1s 0.27s ease both;
+}
+
+.windward-orient .box-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.windward-orient p { font-size: 1.05rem; line-height: 1.85; color: var(--ghost); }
+.windward-orient p + p { margin-top: 0.9em; }
+
+.relationship-note {
+  margin-bottom: 64px;
+  padding: 24px 28px;
+  border: 1px dashed rgba(220,142,85,0.4);
+  background: rgba(220,142,85,0.04);
+  animation: rise 1.1s 0.3s ease both;
+}
+
+.relationship-note p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--ghost);
+}
+
+.relationship-note strong { color: var(--bass); font-weight: 500; }
+
+.intent-note {
+  margin-bottom: 72px;
+  padding: 28px 0;
+  border-top: 1px solid rgba(148,136,120,0.2);
+  border-bottom: 1px solid rgba(148,136,120,0.2);
+  animation: rise 1.1s 0.35s ease both;
+}
+
+.intent-note p { font-size: 1.08rem; color: var(--ash); line-height: 1.9; font-style: italic; max-width: 640px; }
+
+.divider { margin: 56px 0; display: flex; align-items: center; gap: 18px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: rgba(148,136,120,0.15); }
+.divider-mark {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.54rem;
+  letter-spacing: 0.22em;
+  color: var(--ash);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.section { margin-bottom: 68px; animation: rise 1s ease both; }
+
+.section-header { margin-bottom: 26px; }
+
+.section-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  color: var(--bass);
+  letter-spacing: 0.18em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.section-title { font-size: 1.85rem; font-weight: 400; color: var(--cream); line-height: 1.15; font-style: italic; }
+.section-title strong { font-style: normal; font-weight: 600; color: var(--ghost); }
+
+.section-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  color: var(--ash);
+  text-transform: uppercase;
+  margin-top: 8px;
+  display: block;
+}
+
+.section-body { font-size: 1.08rem; line-height: 1.92; color: var(--ghost); max-width: 660px; }
+.section-body p + p { margin-top: 1em; }
+.section-body strong { font-weight: 600; color: var(--cream); }
+.section-body em { color: var(--cream); }
+
+.threads { margin-top: 22px; list-style: none; padding-left: 0; }
+
+.threads li {
+  display: flex;
+  gap: 18px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(148,136,120,0.1);
+  font-size: 1.02rem;
+  color: var(--ghost);
+  line-height: 1.72;
+}
+
+.threads li::before {
+  content: '\25B8';
+  color: var(--bass);
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  margin-top: 8px;
+  opacity: 0.75;
+}
+
+.threads li strong { color: var(--cream); font-weight: 600; }
+
+.script-note {
+  margin-top: 18px;
+  padding: 14px 20px;
+  border-left: 2px solid rgba(214,114,54,0.45);
+  background: rgba(214,114,54,0.04);
+}
+
+.script-note p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.66rem;
+  line-height: 1.7;
+  color: var(--ash);
+  letter-spacing: 0.04em;
+}
+
+.script-note p strong { color: var(--bass); font-weight: 500; }
+
+.coordination-note {
+  margin-top: 22px;
+  padding: 24px 26px;
+  border: 1px solid rgba(196,154,58,0.3);
+  border-left: 3px solid var(--gold);
+  background: rgba(196,154,58,0.04);
+}
+
+.coordination-note .box-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.coordination-note p {
+  font-size: 0.98rem;
+  line-height: 1.78;
+  color: var(--ghost);
+}
+
+.coordination-note p + p { margin-top: 12px; }
+.coordination-note p strong { color: var(--cream); font-weight: 600; }
+
+.coordination-note .tosh-list {
+  margin: 18px 0;
+  padding: 16px 20px;
+  background: rgba(0,0,0,0.22);
+  border-left: 1px solid rgba(196,154,58,0.35);
+}
+
+.coordination-note .tosh-list ul {
+  list-style: none;
+  padding: 0;
+  columns: 2;
+  column-gap: 28px;
+}
+
+.coordination-note .tosh-list ul li {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  line-height: 1.95;
+  color: var(--ash);
+  letter-spacing: 0.02em;
+  break-inside: avoid;
+}
+
+.coordination-note .tosh-list ul li::before {
+  content: '\2014  ';
+  color: var(--gold);
+  opacity: 0.65;
+}
+
+@media (max-width: 500px) {
+  .coordination-note .tosh-list ul { columns: 1; }
+}
+
+.universal-note {
+  margin: 56px 0;
+  padding: 28px 32px;
+  background: rgba(196,154,58,0.05);
+  border-top: 1px solid rgba(196,154,58,0.25);
+  border-bottom: 1px solid rgba(196,154,58,0.25);
+}
+
+.universal-note .box-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.universal-note p { font-size: 1.05rem; color: var(--ghost); line-height: 1.9; font-style: italic; }
+.universal-note p + p { margin-top: 0.9em; }
+.universal-note strong { color: var(--cream); font-style: normal; font-weight: 600; }
+
+.architecture-block {
+  margin-top: 24px;
+  padding: 28px 32px;
+  border: 1px solid rgba(123,45,26,0.3);
+  border-left: 3px solid var(--copper);
+  background: rgba(123,45,26,0.04);
+}
+
+.architecture-block .box-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 16px;
+}
+
+.architecture-block .question-list { list-style: none; padding-left: 0; margin-top: 18px; }
+.architecture-block .question-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(148,136,120,0.1);
+  font-size: 1rem;
+  color: var(--ghost);
+  line-height: 1.78;
+}
+.architecture-block .question-list li:last-child { border-bottom: none; }
+.architecture-block .question-list li strong { color: var(--cream); font-weight: 600; display: block; margin-bottom: 4px; font-size: 1.02rem; }
+
+.private-ref {
+  margin: 56px 0;
+  padding: 26px 30px;
+  border: 1px dashed rgba(74,110,126,0.4);
+  background: rgba(74,110,126,0.04);
+}
+
+.private-ref .box-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 14px;
+}
+
+.private-ref p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.85;
+  color: var(--ghost);
+}
+
+.private-ref p + p { margin-top: 0.7em; }
+.private-ref a { color: var(--signal); border-bottom: 1px solid rgba(74,110,126,0.3); }
+.private-ref a:hover { border-color: var(--signal); }
+.private-ref .ref-stamp {
+  font-size: 0.56rem;
+  letter-spacing: 0.24em;
+  color: var(--signal);
+  margin-top: 14px;
+  display: block;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.anchor-list {
+  margin-top: 24px;
+  padding: 28px 30px;
+  border-left: 2px solid rgba(214,114,54,0.4);
+  background: rgba(214,114,54,0.03);
+}
+
+.anchor-list .box-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bass);
+  margin-bottom: 16px;
+}
+
+.anchor-list .anchor-intro {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ghost);
+  line-height: 1.85;
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed rgba(148,136,120,0.18);
+}
+
+.anchor-list ul { list-style: none; padding-left: 0; }
+.anchor-list ul li {
+  padding: 7px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  line-height: 1.75;
+  color: var(--ash);
+  letter-spacing: 0.02em;
+}
+.anchor-list ul li strong { color: var(--cream); font-weight: 500; }
+
+.closing { margin-top: 84px; padding-top: 44px; border-top: 1px solid rgba(123,45,26,0.3); }
+.closing p { font-size: 1.12rem; font-style: italic; color: var(--ghost); line-height: 1.95; max-width: 620px; }
+.closing p + p { margin-top: 1.2em; }
+
+.sign { margin-top: 48px; }
+.sign .name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cream);
+  font-weight: 500;
+}
+.sign .date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  color: var(--ash);
+  margin-top: 6px;
+}
+
+.companion {
+  margin-top: 80px;
+  padding: 36px 0 0;
+  border-top: 1px solid rgba(148,136,120,0.2);
+}
+
+.companion .box-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bass);
+  margin-bottom: 22px;
+}
+
+.companion ul { list-style: none; padding-left: 0; }
+.companion ul li {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(148,136,120,0.1);
+  font-size: 0.96rem;
+  color: var(--ghost);
+  line-height: 1.7;
+}
+.companion ul li strong { color: var(--cream); font-weight: 500; }
+.companion ul li .meta {
+  color: var(--ash);
+  font-size: 0.7rem;
+  display: block;
+  margin-top: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.companion ul li .caveat {
+  color: var(--ash);
+  font-size: 0.92rem;
+  display: block;
+  margin-top: 6px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .page { padding: 60px 22px 100px; }
+  .doc-title { font-size: 2.1rem; }
+  .stamp { gap: 14px; }
+}
+</style>
+</head>
+<body>
+<div class="waveform-top"></div>
+<div class="page">
+
+<header class="masthead">
+  <p class="date-line">Wednesday 20th May 2026</p>
+  <div class="stamp">
+    <span>Music Supervision BEDROCK</span>
+    <span>Sonic World Orientation</span>
+    <span class="confidential">Confidential / Internal Prep Document</span>
+  </div>
+  <h1 class="doc-title"><em>Wide Sargasso Sea</em></h1>
+  <p class="doc-meta">Feature Film &nbsp;/&nbsp; Prep &nbsp;/&nbsp; Written and Directed by Jenn Nkiru</p>
+  <div class="rule-short"></div>
+</header>
+
+<div class="intro">
+  <p class="to-line">For: Sarah Bridge &nbsp;/&nbsp; Music Supervisor</p>
+  <p>Sarah. I am genuinely excited to bring you into this world. This document is not a playlist request and not a conventional music supervision brief. It is a way of sharing the sonic architecture of the film with you: <em>what it is made of, what it is haunted by, what kinds of sound and music might belong to it, and what kinds might arrive from somewhere unexpected</em>.</p>
+  <p>Think of it as a bridge. Between where we are now, after our first conversation, and the next deeper sit-down. It is being shared with you after deep thought on the world of the film, as a way to orient you toward the sonic life-world that extends beyond the pages of the script.</p>
+  <p>You are going to hear me say one thing repeatedly across this document: I am known for rich visual worlds, but my work is equally sonic. Sound and music are not secondary to image in this film. They are part of the film's architecture. I want you to feel that fully before we begin.</p>
+</div>
+
+<div class="premise">
+  <p class="box-label">The Film</p>
+  <p>This is a feature film adaptation of <strong>Jean Rhys's Wide Sargasso Sea</strong>, published in 1966. Rhys wrote it as a counter to Charlotte Brontë's <em>Jane Eyre</em>, restoring voice and interiority to the woman Brontë had locked in the attic: Antoinette Cosway, Creole Jamaican, dispossessed, called mad, later renamed Bertha.</p>
+  <p>My adaptation does not treat the novel as heritage translation. It treats it as <strong>reactivation</strong>. A living architecture about power, identity, inheritance, possession, freedom, race, gender, perception, memory, and what survives after violent systems try to erase it.</p>
+  <p>It is a period piece, but it refuses to be trapped by period. The sonic language is achronological and at times anachronistic. It reaches across past, present, and future because that is how the film thinks. We are not making a traditionally period film. Hold that close.</p>
+  <p>The film is set primarily in Jamaica, moves through the Windward Islands during the honeymoon at Granbois, and ends in England at Thornfield. We are shooting in Barbados, but the sonic world must hold Jamaica, the Windward Islands, the Francophone Caribbean, England, and the wider Black Atlantic.</p>
+  <p>The film opens on fire and ends on Antoinette's laugh above a clear Caribbean sea. Antoinette is flying home. The closing image is the laugh of arrival, not departure. Every cue, every silence, every score instinct in this film should be made by someone who knows the laugh is coming.</p>
+</div>
+
+<div class="windward-orient">
+  <p class="box-label">A Quick Orientation / Jamaica and the Windward Islands</p>
+  <p><strong>Jamaica</strong> is the largest island of the Greater Antilles, primarily Anglophone, with a deep Creole culture and a vast musical tradition rooted in African inheritance: kumina, nyahbinghi, burru, mento, revival, pocomania, ska, rocksteady, reggae, dub, dancehall, sound system culture. The film's spiritual and sonic ground is deeply Jamaican.</p>
+  <p><strong>The Windward Islands</strong> sit at the southern end of the Lesser Antilles: Martinique (French), Dominica, Saint Lucia, Saint Vincent and the Grenadines, Grenada. French Creole language and culture survive across the formally English-speaking islands. <strong>Christophine is from Martinique.</strong> Her sonic and spiritual inheritance is different from Jamaica's, connected through a shared African root but distinct in its expressions. <strong>Annette</strong>, Antoinette's mother, also carries Francophone Creole inheritance. The film holds both worlds and the friction between them.</p>
+</div>
+
+<div class="relationship-note">
+  <p><strong>A note on us:</strong> You and I have not worked together before. So beyond the films and music videos of mine you may already know, this document is also an orientation into how I think and how I work. It is meant to give you confidence in my leadership of the sonic register, and at the same time invite you into a process that is genuinely collaborative. There is real room here for your instincts, your ear, your weirdness, your insistence. Bring all of it.</p>
+</div>
+
+<div class="intent-note">
+  <p>You have the script. Treat it as the spine, not the cage. The script already names specific cues, specific frequencies, specific sonic events. They are anchors, not limits. The deeper sonic world we are building lives in conversation with what is written, sometimes alongside it, sometimes underneath it, sometimes against the grain of it. Where you hear something the script does not name, bring it.</p>
+</div>
+
+<div class="divider"><span class="divider-mark">An Operating Framework</span></div>
+
+<div class="section">
+  <div class="section-header">
+    <h2 class="section-title" style="font-size:1.5rem;">The <strong>Three Registers</strong></h2>
+    <span class="section-sub">How this film thinks about every scene, every object, every sound</span>
+  </div>
+  <div class="section-body">
+    <p>Everything in this film operates simultaneously on three registers. The <strong>material</strong> register: what is literally present, the body in the room, the song on the speaker, the bassline in the air, the breath, the silence. The <strong>spiritual</strong> register: what is being enacted beyond the surface, at the level of belief, protection, possession, ritual, warning, release, trance, fear, ecstasy, rupture. The <strong>ancestral</strong> register: what the moment carries from what came before and what it passes forward to what will come after. The ancestral is not only past. It is also what we are becoming for those who follow.</p>
+    <p>A musical analogy that runs through everything I am making: the <strong>material is the drum</strong>, the <strong>spiritual is the bass</strong>, the <strong>ancestral is the vocal carrying across generations</strong>. The drum is the first telephone. Every scene has all three playing at once.</p>
+    <p>For you, the practical translation is this: any potential cue, score direction, source track, or sonic idea should be tested against all three registers. What is it doing materially? What is it doing spiritually? What is it carrying ancestrally, both behind and ahead? If it only speaks on one, keep digging.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2 class="section-title" style="font-size:1.5rem;">The <strong>Elemental Through Line</strong></h2>
+    <span class="section-sub">Water, fire, air, earth as operative, not symbolic</span>
+  </div>
+  <div class="section-body">
+    <p>This film is built on the four elements. They are operative, not decorative. Music and score should not float above them. They should move with them.</p>
+    <ul class="threads">
+      <li><strong>Water.</strong> The Sargasso Sea, the natural pool at Granbois, rain, river, sweat, tears, Christophine submerged in the river screaming into water like whale song, the clear sea at the end. The sound of a body entering water, the sound of a body leaving it.</li>
+      <li><strong>Fire.</strong> Coulibri burning, Thornfield burning, candles, moths meeting flame, the hearth, the sun, the deep red screen-fillers, the burn, heat, rage. Different fires sound different.</li>
+      <li><strong>Air.</strong> Breath, wind, voice, bird call, insect hum, laughter, scream, silence. The Caribbean veranda's air against the cold air of the Thornfield battlements at the end.</li>
+      <li><strong>Earth.</strong> Mud, footsteps, mortar, dirt, forest floor, body, burial, residue. The scrape of a spade into hard ground. The mortar grinding coffee. Land underneath everything.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2 class="section-title" style="font-size:1.5rem;">The <strong>Bridge</strong></h2>
+    <span class="section-sub">Music's bridge as structural method. A second thread alongside the story.</span>
+  </div>
+  <div class="section-body">
+    <p>Sarah, this section is yours in more ways than one.</p>
+    <p>The bridge in a track is one of the most important structural concepts I work with. Not as a stylistic device. As a method.</p>
+    <p>What the bridge does in a song: it takes the fragments of what the track is and carries you on a journey somewhere else within it. It departs from the home key, the home progression, the home rhythm. It introduces new material. It opens a door. And then, sometimes, it returns. Sometimes it feels for a long moment as though it may not. Sometimes it does not. The not-knowing is part of the form. <strong>The bridge is the section that holds the question of whether we will come back.</strong></p>
+    <p>This is how I think about my films. The bridge is its own interconnecting, interweaving journey. A thread running alongside the main story of things. A second thread that touches the first, departs from it, sometimes braids back, sometimes does not. The film as a whole has bridges. Sequences function as bridges. Single shots can be bridges. A piece of music can be a bridge between one scene and the next. Sound can be a bridge between two moments of image. The MASTER OF NONE sequence is a bridge. The dub title cards are bridges. The 90s dancehall in the forest is a bridge. Christophine underwater is a bridge. The fire and archive sequence is one of the longest bridges in the film. The laugh at the end is what the whole film has been building its bridges toward.</p>
+    <p>For you, this is enormous. Some of the most important sonic decisions on this film will be bridge decisions. Where does the music depart? Where does it possibly return? Where does it refuse to return? Where does a track function as the journey elsewhere, the passage between two rooms of the film? Where does a fragment carry us into a register the scene could not have reached on its own? Where does the bridge close, and where does it leave us hanging?</p>
+    <p>The bridge connects to everything else in this framework. To foreshadowing, because a bridge often plants the seed of a resolution to come. To non-resolution, because a bridge can refuse to come home. To discord and syncopation, because a bridge often pulls against the time and key of the main material. To THE MISSING, because the bridge is a journey to a place we may not know we have been before. To Cosmic Archaeology, because the bridge can be the moment when fragments from past, present, and future suddenly touch.</p>
+    <p>A sibling concept, while we are still inside music's structural vocabulary: <strong>the B-side</strong>. Where the bridge takes you on a journey away from the song and back, the B-side reflects the song back to you in a new register. Same artist, same studio, same world, but the angle has shifted. The shadow take. The version that thinks against the A-side without contradicting it. Rochester and Antoinette see the same Caribbean, the same marriage, the same house, the same months at Granbois, the same fire, and they see them entirely differently. They are not contradicting each other. They are each other's B-side. Same material environment, different register. Hold this alongside the bridge as we work. Some sonic decisions in this film will be bridge decisions. Some will be B-side decisions. They are not the same thing.</p>
+  </div>
+</div>
+
+<div class="universal-note">
+  <p class="box-label">A Universal Note / The Body Remembers Forward</p>
+  <p>Across every department I am holding one psycho-somatic thread. The hammock-evening red of <strong>Scene 17</strong>, where the sky burns red and Antoinette names being afraid of happiness for the first time, is already foreshadowing the red of the burn and the orange-red moon she sees in <strong>Scene 103</strong> before she flies home. Red is loaded with foreboding and with freedom in the same image, way back in Scene 17, because they are the same red. The film knew where it was going from the start. <em>The body remembers forward.</em></p>
+  <p>For you, this means: sonic foreshadowing is real. A frequency, a fragment, a vocal trace, a half-heard bassline can be planted early and bloom across the film. The early hammock should hold a tonal trace of the late fire. The first water sounds should hold a trace of the final clear sea. The first scream of Coulibri should already carry the ancestor of the laugh.</p>
+</div>
+
+<div class="universal-note">
+  <p class="box-label">A Universal Note / Nothing Fully Resolved</p>
+  <p>Another principle that runs across every department on this film. <strong>Nothing should feel fully resolved.</strong> Not the image, not the story, not the sound. The film lives in the in-between, the unfinished, the haunted, the open. For you, this means I am especially drawn to sounds that are <em>off</em>. Syncopation that pulls against the grain. Discordant intervals. Chord progressions that do not return home. Notes held a beat too long. Beats dropped a fraction early. Music in a key the scene is not. Tunings that are slightly off-pitch on purpose. Old-recording wobble. The bend that never quite lands. The bridge that hesitates before returning, or refuses to return at all.</p>
+  <p>Resolution is what colonial form wants. This film refuses it. The musical bridge, which I named above, is one of the structural forms that holds non-resolution and lets it move. Bring me the sounds that refuse resolution too.</p>
+</div>
+
+<div class="divider"><span class="divider-mark">What I Am Asking You To Hold</span></div>
+
+<div class="section">
+  <div class="section-body">
+    <p>Your role can sit at the intersection of music supervision, score instinct, source music, sonic research, clearance practicality, and dialogue with sound design. Even where something is not strictly your lane, I welcome your thoughts if you hear something. This is not a brief that asks you to find great tracks for a film. It is a brief that asks you to enter the world fully and begin thinking expansively. You are a musical mind being invited into the architecture.</p>
+    <ul class="threads">
+      <li><strong>Source music</strong> and <strong>needle drops</strong> as architecture, not decoration.</li>
+      <li><strong>Period music and anachronistic rupture.</strong> The deliberate collapse of time.</li>
+      <li><strong>Score possibilities</strong> and <strong>composer conversations</strong> if and when relevant. I have not locked a composer. Your instincts on score-world, temp language, reference language, and the bridge between music and sound design will be valuable.</li>
+      <li><strong>Producers</strong> and <strong>sound designers</strong> too. If you have thoughts on who might belong in this world, name them. The film's architecture is porous, and the team needs to be too.</li>
+      <li><strong>Clearance and rights reality.</strong> What can actually be used. What is dream. What is temp. What needs a soundalike, an interpolation, an original response.</li>
+      <li>Music that may be <strong>diegetic, non-diegetic, or unstable</strong> between the two.</li>
+      <li>Songs that carry <strong>history</strong>. Songs that carry <strong>body</strong>. Songs that carry <strong>irony</strong>. Songs that arrive as <strong>ghosts</strong>.</li>
+      <li>Music as <strong>structure</strong>, not decoration.</li>
+      <li><strong>Sound design adjacency</strong> where music and sound blur.</li>
+      <li><strong>Archive sound, vocal fragments, field recordings, breath, scream, water, fire, silence.</strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-mark">Research and Supervision Threads</span></div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2 class="section-title"><strong>THE MISSING</strong> / Cosmic Archaeology</h2>
+    <span class="section-sub">The philosophical operating principle. Pair them always.</span>
+  </div>
+  <div class="section-body">
+    <p>This is one of the most important sections of this document, especially because these terms will be new to you. Pause here. Read it carefully. THE MISSING and Cosmic Archaeology are not metaphors I am being clever with. They are how I think, and they will return in every conversation we have about this film.</p>
+    <p><strong>THE MISSING.</strong> The term comes from the artist and theorist Arthur Jafa. It describes what cannot be fully counted, measured, mourned, or recovered because we do not know the full scale of what was taken or erased. The transatlantic slave trade is the foundational example. There is no full ledger of the lives stolen, no roll of the names, no recoverable map of the languages, songs, kinship structures, cosmologies, sacred objects, and futures that ended before they could be lived. THE MISSING is the gap we know is there but cannot measure. The grief without a register. The presence-of-absence that shapes everything that came after.</p>
+    <p>The sonic dimension of THE MISSING is profound, perhaps more profound than the visual. Sound is uniquely able to carry absence. A held note can be the trace of a voice that is gone. A silence after a beat can hold everything the beat could not say. Echo is the literal sonic trace of what was present and is no longer. Reverb is a room that is no longer there. The dub drop-out makes the missing audible. The sample carries the dead voice forward. The unfinished take. The acetate cut once and lost. The recording where the singer breathes a name we cannot quite hear.</p>
+    <p><strong>Cosmic Archaeology.</strong> This is my own concept. It is the practice of working with fragments of past, present, and future knowledge as if they are surviving signals from the same continuous field. Cosmic Archaeology is what happens when the mind experiences déjà vu, resonance, code-breaking, spiritual recognition, and finds pathways between seemingly disparate human and pan-African traces. The fragment as a sender. The buried as a transmitter. Recognition across centuries. A 1970s dub plate hearing forward to a 2020s grime track. A nyahbinghi drum hearing back to a Yoruba prayer that was never recorded. A beat from somewhere I have never been arriving and feeling like home. Cosmic Archaeology trusts these recognitions. They are not coincidence. They are how the African diaspora hears itself across the rupture of the Middle Passage.</p>
+    <p><strong>THE MISSING and Cosmic Archaeology must always be paired.</strong> THE MISSING is the loss. Cosmic Archaeology is how we listen anyway. THE MISSING is the silence. Cosmic Archaeology is what we hear inside it. They are not the same thing and they are not opposites. They are the two ears with which this film listens.</p>
+    <p>For you, this is practical. Some music will be powerful in this film because it sounds like a fragment, a ghost, a half-recovered thing, a buried transmission, a surviving code. Not every cue needs to be complete, clean, or fully legible. <strong>The fragment may be the point.</strong> The minute-long thing that is almost not even a song. The B-side. The unfinished take. The acetate cut once and lost. The voice that carries across decades because of how it holds a note. The sample that recognises itself. Bring those. They are not gaps in the supervision. They are the supervision.</p>
+    <p>You can also see my earlier engagement with THE MISSING in <a href="https://youtu.be/WqVq_QMH46E?si=KyHizT27xe-Aaft6" target="_blank" rel="noopener">Black to Techno (2019)</a>, where I deployed it for the first time as a structural and philosophical framework in my practice. Watch it as part of getting your ear in. The way sound moves through that film, how THE MISSING is made audible, how fragments are recognised across time, how dub and techno and the Black electronic tradition are placed in continuous conversation, is the closest existing articulation of what we are building here together. Treat it as method, not as reference.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2 class="section-title"><strong>Dub</strong> / But Not Only Dub</h2>
+    <span class="section-sub">The film's nervous system. Dub as method, not only genre.</span>
+  </div>
+  <div class="section-body">
+    <p>Dub is the film's nervous system. It is also the spine of Errol's hyper-focused sonic research. Your task is different. You are casting a wider net. So I want you to understand dub as <strong>method</strong>, not only genre: bass, echo, reverb, delay, cut, drop, absence, versioning, remix, and what remains after something has been stripped away. Dub as a way of thinking about presence and absence, time and frequency, body and spirit. Dub as the most precise sonic articulation of the in-between that exists.</p>
+    <p>Dub connects directly to <strong>THE MISSING</strong>: echo as the trace of what was present and is no longer, bass as body-memory, delay as the past haunting the present. My earlier engagement with this is in <a href="https://youtu.be/WqVq_QMH46E?si=KyHizT27xe-Aaft6" target="_blank" rel="noopener">Black to Techno (2019)</a>, where THE MISSING was first deployed as a structural and philosophical framework within my practice. Watch it if you have not.</p>
+    <ul class="threads">
+      <li><strong>Dub lineage.</strong> King Tubby, Lee "Scratch" Perry, Augustus Pablo, Prince Jammy, Scientist. The studio as instrument. The version as a form of reinterpretation. The cut as presence.</li>
+      <li><strong>Dub as architecture.</strong> Echo as a dimension of space. Bass as a foundation. The drop as a doorway. This connects to my concept of the <strong>Remix Potential of Space</strong>: received forms can be remixed rather than reproduced, with the traces of the original still audible in the transformation.</li>
+      <li><strong>The bass frequency as physical.</strong> Felt before heard. Moving through bodies, through walls, through water. Building a film around a frequency that bypasses cognition and arrives at the body directly.</li>
+      <li><strong>Dub's wider kin.</strong> Sound system culture, sample logic across hip-hop, electronic music, the recombinant tradition, the remix as ancestral reinterpretation.</li>
+    </ul>
+    <div class="coordination-note">
+      <p class="box-label">In Coordination / Peter Tosh Estate</p>
+      <p>One specific piece of practical coordination so we do not duplicate effort. I am in touch with the <strong>Peter Tosh estate</strong>, who are interested in supporting the film. I have already sent them a working list of songs as a first opening. Sharing it with you below so you know what is already in play through that channel. You can still bring other Tosh material into your wider thinking, but treat this list as the map of what is already moving.</p>
+      <div class="tosh-list">
+        <ul>
+          <li>Mark of the Beast</li>
+          <li>Burial</li>
+          <li>Bumbaclaat</li>
+          <li>I Am That I Am</li>
+          <li>Brand New Second Hand</li>
+          <li>Downpressor Man</li>
+          <li>400 Years</li>
+          <li>No Sympathy</li>
+          <li>Mystic Man</li>
+          <li>Bush Doctor</li>
+          <li>Equal Rights</li>
+          <li>Till Your Well Runs Dry</li>
+          <li>Johnny B. Goode</li>
+          <li>Why Must I Cry</li>
+          <li>Glass House</li>
+          <li>Lessons in My Life</li>
+          <li>Feel No Way</li>
+          <li>Where You Gonna Run</li>
+          <li>In My Song</li>
+          <li>Igziabeher</li>
+        </ul>
+      </div>
+      <p>Beyond the songs themselves, I have also requested unreleased material from the estate: isolated vocals, dub plates, basslines, guitar skanks, rehearsal tapes, live recordings, studio chatter, alternate takes, tape hiss, room tone, fragments, unfinished sketches, unreleased material, even just hearing Peter speak. The fragment may be the point, and Tosh's archive is one of the places we may find that fragment.</p>
+    </div>
+    <div class="script-note">
+      <p><strong>From the script:</strong> Dub is specified across the film's structure. The opening chapter title card is punctuated by a "searing dub baseline." The second chapter title by "a dub delay and reverb." A "deep heavy baseline, dub vibration" moves through pool water in Scene 21. A "long dub bassline drop" follows a love potion in Scenes 61–64. Christophine submerges in the river and screams underwater "like whale song" above a King Tubby deep dub in Scene 76. Dub marks every major transition and every moment of heightened spiritual or psychological register in this film.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2 class="section-title"><strong>Jamaica</strong> / as Sonic Ground</h2>
+    <span class="section-sub">Not only the birthplace of dub. The whole sonic ecosystem.</span>
+  </div>
+  <div class="section-body">
+    <p>Jamaica must be treated as a sonic site, not only as a genre catalogue. I want you alive to mento, kumina, nyahbinghi, burru, revival, pocomania, ska, rocksteady, reggae, dancehall, gospel, sound system culture, field and ritual and community sound. The whole ecosystem. The grandparents of dub and the grandchildren of dub.</p>
+    <ul class="threads">
+      <li><strong>Mento and the rural sonic memory.</strong> The pre-ska Jamaican sound. Banjo, rhumba box, hand percussion, work song lineage.</li>
+      <li><strong>Nyahbinghi, kumina, burru.</strong> The drum traditions Jamaica protected. Sacred and ceremonial.</li>
+      <li><strong>Revival and pocomania.</strong> The spirit-possessed singing traditions, the breath rhythms, the trance forms.</li>
+      <li><strong>Ska, rocksteady, reggae, roots, dancehall, digital dancehall, modern dancehall.</strong> The whole arc, including the 90s body-language that the film deliberately invokes.</li>
+      <li><strong>Sound system culture.</strong> The dance, the selector, the toaster, the speaker stack as architecture. The dance as a spiritual gathering.</li>
+    </ul>
+    <div class="script-note">
+      <p><strong>Script anchors:</strong> opening title card (searing dub baseline). Scene 21 (pool, deep heavy dub vibration). Scene 39 (water drumming on white linen, women washing, Christophine's work song). Scene 63 (forest, 90s dancehall slowed to 80 BPMs). Scene 76 (Christophine underwater, King Tubby deep dub). The Jamaican sonic ground is woven through every act.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2 class="section-title"><strong>Francophone</strong> / Windward Islands / Wider Caribbean</h2>
+    <span class="section-sub">Christophine is Martiniquan. Annette is Francophone Creole.</span>
+  </div>
+  <div class="section-body">
+    <p>The film moves through the wider Caribbean. The honeymoon world sits in the Windward Islands. Christophine carries her Martiniquan inheritance into the heart of the story. Annette carries Francophone Creole inheritance. The sonic world must cast across Martinique, Guadeloupe, Dominica, Saint Lucia, Haiti, Trinidad, Cuba, the Dominican Republic, Puerto Rico, Curaçao, Aruba, Bonaire, and beyond. The point is not to flatten the Caribbean into one sound. It is to hear distinct islands, distinct histories, and where they touch.</p>
+    <ul class="threads">
+      <li><strong>Biguine, bèlè, gwo ka.</strong> The traditional musics of Martinique and Guadeloupe. Gwo ka particularly as a drum tradition with direct West African roots, preserved through enslavement.</li>
+      <li><strong>Compas and Haitian rara.</strong> Haiti's sonic world. Rara as street music, carnival music, spiritual music, political music all at once.</li>
+      <li><strong>Vodou ceremonial music.</strong> Rada, Petro, Congo nation drum patterns. The sacred songs that summon the Loa. Maya Deren's field recordings from Haiti in the 1940s and 1950s.</li>
+      <li><strong>Calypso, soca, steel pan.</strong> Trinidad's sonic tradition. Calypso as political music, social commentary, carnival, memory. The steel pan emerging from the discarded materials of empire.</li>
+      <li><strong>Cuban son, rumba, Santería drumming.</strong> The Spanish-speaking Caribbean's contribution. Santería drumming as a parallel and distinct spiritual tradition to Vodou and Obeah.</li>
+      <li><strong>Tambú, tumba, Curaçao, Aruba, Bonaire.</strong> The ABC islands' distinctive sonic worlds, often overlooked in pan-Caribbean musical surveys.</li>
+      <li><strong>Dominica's traditional music.</strong> Bèlè, quadrille, jing ping. A small island with a deep musical pool that sits between the French and English Caribbean.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">05</span>
+    <h2 class="section-title"><strong>Score</strong> / as Atmosphere, Not Instruction</h2>
+    <span class="section-sub">Pressure, frequency, interiority, weather, possession, release</span>
+  </div>
+  <div class="section-body">
+    <p>The score should not over-explain emotion. It should not tell the audience what to feel in a conventional way. It should operate as <strong>pressure, frequency, interiority, weather, memory, possession, release</strong>. Sometimes it should feel like sound design. Sound design should sometimes behave like score. The two are porous.</p>
+    <ul class="threads">
+      <li><strong>Bass as pressure.</strong> Strings as restraint, or as colonial elegance under stress.</li>
+      <li><strong>Voice as ancestral transmission.</strong> Not lyrics. Not narration. Frequency. Breath. Hum.</li>
+      <li><strong>Percussion as body and earth.</strong> Drone as heat. Distortion as perception breaking.</li>
+      <li><strong>Texture instruments.</strong> Bowed metal, prepared piano, organ, harmonium, choral fragments, water-tones, breath-tones, field recordings.</li>
+      <li><strong>Silence as rupture.</strong> Score that withholds. Score that drops out. Score that lets the room speak. Score that makes the next sound twice as loud.</li>
+      <li><strong>Score that becomes sound design, and sound design that becomes score.</strong> The boundary between them in this film is porous on purpose.</li>
+    </ul>
+    <p>I have not locked a composer. I am open. If you have producers, composers, or sonic minds you think might belong in this world, name them. I welcome that conversation early. I should also flag that I already have ideas of my own for score, so this is something for us to sit with properly in our next conversation. Bring yours, and we will put them into discussion. Your instincts on score-world, temp language, and the bridge between music and sound design will matter to how we cast that role.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">06</span>
+    <h2 class="section-title"><strong>Source Music</strong> / Achronology and Anachronism</h2>
+    <span class="section-sub">Pull from every period. We are not making a traditionally period film.</span>
+  </div>
+  <div class="section-body">
+    <p>This is one of the most important sections of this document. Please read it carefully. The film is a period piece, but the sonic language refuses to be contained by period. The sound is <strong>achronological</strong> and at times <strong>anachronistic</strong>, deliberately. This is not a mistake. It is the argument.</p>
+    <p>The two terms are not the same and the difference matters:</p>
+    <ul class="threads">
+      <li><strong>Achronological.</strong> Music reaching across time because the film's ancestral logic does not move in a straight line. The past, the present, and the future are speaking to each other constantly. Sound that floats free of a single decade because the conditions the film describes are not contained by a single decade.</li>
+      <li><strong>Anachronistic.</strong> A sound knowingly appearing outside its historical period to create rupture, recognition, charge, irony, liberation, or psychic truth. The 1990s arriving inside the 1830s, the 2010s arriving inside the 1840s, deliberately, structurally, with intention.</li>
+    </ul>
+    <p>For you, this means: <strong>cast across every period.</strong> Every era, every decade, every geography is available. Nineteenth century song, twentieth century studio innovation, twenty-first century production, future-leaning composition. The film will absorb sound from anywhere that carries the right frequency.</p>
+    <div class="script-note">
+      <p><strong>Script anchors for the time-collapse system:</strong> 90s dancehall body-language in the forest (Scene 63, slowed to 80 BPMs). Rage Against the Machine rhythm around MASTER OF NONE (Scenes 81–86). X-Ray Spex "Oh Bondage! Up Yours" entering England (Scene 90). Robert Hood's "Minus" inside the abstracted fire and archive sequence (Scenes 99–103). Lil Yachty "BLACK Seminole" style reference after Daniel (Scene 37). King Tubby deep dub (Scene 76). The chapter title-card dub cues across the whole film. These are not random cool references. They are structural interventions in the time of the film.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">07</span>
+    <h2 class="section-title"><strong>Voice</strong> / Scream, Song, Lullaby, Laugh</h2>
+    <span class="section-sub">Voice in this film is not only dialogue</span>
+  </div>
+  <div class="section-body">
+    <p>Voice in this film does enormous work, and a lot of it sits in your territory or adjacent to it. Voice here is song, work song, lullaby, scream, underwater scream, ancestral voice, internal voice, name, misnaming, Bertha, laughter, breath, silence. I want you alive to vocal music, vocal fragments, breath, cries, sung work, sung violence, sung memory, and songs as social weapons.</p>
+    <ul class="threads">
+      <li><strong>Work song.</strong> The lineage from the Caribbean fields and rivers and yards. The songs that organised labour, carried memory, encoded resistance, held women together at the river bank.</li>
+      <li><strong>Lullaby.</strong> Christophine's specifically. The lullaby as protection. The lullaby as ancestral transmission to a child who will need to remember.</li>
+      <li><strong>Scream.</strong> The whale-song scream into water. The Coulibri scream sucked out and rushed back. The deep-red screen screams at high, mid, and low pitches.</li>
+      <li><strong>Children's voices.</strong> The chant against Young Antoinette consumed by nature. The voices that bend cruelty into rhyme.</li>
+      <li><strong>Songs as weapons.</strong> Amelie's "white cockroach" song. The song that names, exposes, wounds, refuses.</li>
+      <li><strong>The undertone.</strong> The thousand voices beneath the Sargasso. Voice as ocean. Voice as ancestral ground.</li>
+      <li><strong>The laugh.</strong> Antoinette's final laugh above a clear sea. The last sound of the film. The laugh of arrival.</li>
+    </ul>
+    <div class="script-note">
+      <p><strong>Vocal anchors across the script:</strong> the undertone of 1000 voices in the Sargasso (Scene 2). Amelie's "white cockroach" song (Scene 28). The children's chant (Scene 44). Christophine's lullaby (Scene 45). Christophine's work song at the river (Scene 39). Christophine's underwater scream like whale song (Scene 76). Arawakan ancestor voice in Scene 87. Rochester's multiple voices in MASTER OF NONE (Scenes 81–86). Antoinette's final laugh (Scene 105).</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">08</span>
+    <h2 class="section-title"><strong>Needle Drops</strong> / as Architecture</h2>
+    <span class="section-sub">Never decorative. Always structural.</span>
+  </div>
+  <div class="section-body">
+    <p>A needle drop in this film should never be decorative. If a track is merely cool, it is not enough. Each drop should do at least one of the following:</p>
+    <ul class="threads">
+      <li><strong>Open a time portal.</strong> Collapse one era into another.</li>
+      <li><strong>Reveal a submerged register.</strong> Make the spiritual or ancestral suddenly audible inside the material.</li>
+      <li><strong>Rupture period containment.</strong> Refuse the obligation of period authenticity.</li>
+      <li><strong>Externalise an interior state.</strong> Make Antoinette's or Rochester's internal weather audible.</li>
+      <li><strong>Create political charge.</strong> Carry the politics of the film into the bones of a scene.</li>
+      <li><strong>Make possession visible.</strong> Make freedom audible.</li>
+      <li><strong>Bring the archive into the present.</strong> The buried surfacing.</li>
+    </ul>
+    <p>If a drop alters the architecture of a scene, it earns its place. If it only sits on top of the scene, it does not.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">09</span>
+    <h2 class="section-title"><strong>Sound Design</strong> / Adjacency</h2>
+    <span class="section-sub">Where music and sound blur. Non-territorial. Collaborative.</span>
+  </div>
+  <div class="section-body">
+    <p>You are Music Supervisor, but I want any thoughts you have that touch sound design. The boundaries between music and sound design in this film are deliberately porous. This is collaborative and non-territorial. You do not need to own sound design to have instincts about where music and sound meet. If you have sound designers in mind whose work might belong in this world, please name them.</p>
+    <ul class="threads">
+      <li><strong>Water drumming on linen.</strong> Women's hands at the river. Percussion that is also work, also ritual.</li>
+      <li><strong>Muffled underwater sound.</strong> The body's ear inside water.</li>
+      <li><strong>Thermal saturation tones.</strong> The sonic register of heat, of the red-screen moments.</li>
+      <li><strong>Insect hum, bird calls.</strong> The Caribbean acoustic ecology as score.</li>
+      <li><strong>Mortar pounding, chewing stick mouth rhythm, law books, paper, ants.</strong> The micro-percussion of object and body.</li>
+      <li><strong>Rain on different leaves. Fire roar. Sucked-out silence.</strong></li>
+      <li><strong>Archive sound. Voices becoming beat. Metronomic techno.</strong> The fire-and-archive sequence.</li>
+      <li><strong>The final laugh.</strong> The last cue. Whether it is music or sound or both.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">10</span>
+    <h2 class="section-title"><strong>Rights</strong> / Clearance and Practical Awareness</h2>
+    <span class="section-sub">Keep the dream big. Keep the production grounded.</span>
+  </div>
+  <div class="section-body">
+    <p>This is your practical lane and it matters. Music supervision is also about what can actually be used, when, and at what cost. I want us thinking about clearance early so that the imagination stays large and the production stays sane.</p>
+    <ul class="threads">
+      <li><strong>Dream references versus clearance candidates.</strong> What is aspirational. What is realistic. What lives only as temp.</li>
+      <li><strong>Soundalikes, interpolations, composer-response cues.</strong> When the original is unreachable, what can stand for it without cheapening it.</li>
+      <li><strong>Iconic tracks.</strong> Where we need to start clearing early. Which estates, which catalogues, which gatekeepers.</li>
+      <li><strong>Archival sound and recorded music.</strong> What rights risks attach to historical recordings, ethnomusicological archives, field tape, broadcast clips.</li>
+      <li><strong>Public domain, traditional, and field recordings.</strong> Where the ethics live alongside the law.</li>
+      <li><strong>Sacred and ceremonial music.</strong> How we honour without extracting. More on this in the architecture section below.</li>
+      <li><strong>Composer-built alternatives.</strong> Where a composer can build from an idea rather than literal use.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">11</span>
+    <h2 class="section-title"><strong>Stems</strong> / Fragments and Flexible Use</h2>
+    <span class="section-sub">Beyond licensing a complete track as-is</span>
+  </div>
+  <div class="section-body">
+    <p>I want you thinking beyond the whole track. For certain pieces of music, I may love the song but want to play with how it unfolds cinematically. So please think early about whether we can access or request <strong>stems</strong>: instrumental, a cappella, isolated bass, drums, percussion, vocal stems, extended intros, clean endings, alternate mixes, dub versions, demos, session parts, stripped versions. This connects to rights too: edit rights, remix rights, interpolation possibilities, soundalike possibilities, composer-response cues, and whether a track can be treated as <strong>material</strong> rather than simply dropped whole into the film.</p>
+    <p>Beyond stems, I want you thinking in <strong>fragments</strong>. The film should not only be thinking in full songs or traditional sync tracks. It should think in:</p>
+    <ul class="threads">
+      <li>A bassline. A drum break. A vocal breath. A chant. A room tone.</li>
+      <li>A field recording. A crackle. A child's voice. A work-song trace.</li>
+      <li>A half-heard melody. A sound spilling from another room.</li>
+      <li>A few seconds of something that carries the right frequency.</li>
+    </ul>
+    <p>Sometimes the fragment is more powerful than the full cue. This connects directly to THE MISSING and Cosmic Archaeology: fragments as surviving material, fragments as code, fragments as pathways between past, present, and future knowledge.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">12</span>
+    <h2 class="section-title"><strong>Wide Net</strong> / Beyond Genre</h2>
+    <span class="section-sub">Errol goes hyper-deep on dub. Yours is the wider cast.</span>
+  </div>
+  <div class="section-body">
+    <p>Errol's brief is hyper-focused on dub and the sonic research pool around it. Yours casts wider. These are my odds and ends, the wider waters. Cast across every genre, every era, every geography. Bring me what you hear that carries the right frequency, even if you cannot say why. Breadth not as shopping. Breadth as possible frequency alignment.</p>
+    <ul class="threads">
+      <li><strong>Dub, reggae, dancehall, ska, rocksteady, roots.</strong> The Jamaican spine.</li>
+      <li><strong>Punk and post-punk.</strong> X-Ray Spex, the politics of refusal, the female scream as instrument.</li>
+      <li><strong>Techno.</strong> Detroit specifically. Underground Resistance, Drexciya, Robert Hood, Jeff Mills. The Black electronic tradition that parallels and intersects dub's territory.</li>
+      <li><strong>House, garage, jungle, drum and bass, grime, dubstep.</strong> The UK hardcore continuum.</li>
+      <li><strong>Gospel, R&amp;B, soul, spiritual jazz.</strong> The interior tradition. Alice Coltrane, Pharoah Sanders, the harp and organ recordings, the inwardness.</li>
+      <li><strong>Opera, choral music, sacred polyphony, classical.</strong> The voice pushed to its extremities. Medieval polyphony, Georgian polyphonic singing, qawwali.</li>
+      <li><strong>Folk and field recordings.</strong> Lomax across the Caribbean and the American South. Verna Gillis. Harold Courlander in Haiti. Survival music.</li>
+      <li><strong>Ritual music, children's song, work song.</strong> The non-commercial sonic ground.</li>
+      <li><strong>Noise, ambient, industrial, drone.</strong> Eliane Radigue, Tim Hecker, William Basinski. Things that do not sound like music until suddenly they do.</li>
+      <li><strong>Metal, hardcore, screamo.</strong> The body's loudest registers.</li>
+      <li><strong>Black British music. Caribbean diaspora. African diasporic music.</strong> The wider Atlantic.</li>
+      <li><strong>Francophone music across decades.</strong> France, Martinique, Guadeloupe, Haiti, Senegal, Mali, the Maghreb.</li>
+      <li><strong>MENA and global south sonic references</strong> if they speak to the film's frequency.</li>
+      <li><strong>Hip-hop at its most interior.</strong> Lil Yachty's psychedelic turn, Frank Ocean, Solange, Moses Sumney, Jamila Woods, Earl Sweatshirt.</li>
+      <li><strong>Film scores that did something strange.</strong> Mica Levi, Jonny Greenwood, Popol Vuh, Maya Deren's Haiti compositions.</li>
+      <li><strong>The unclassifiable.</strong> Things you loved once and could never explain. Things you think might belong even though you cannot justify why. Trust that instinct entirely.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-mark">Music Supervision as Architecture</span></div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">13</span>
+    <h2 class="section-title"><strong>Music Supervision</strong> / as Architecture</h2>
+    <span class="section-sub">Each cue earns its place. Each silence too.</span>
+  </div>
+  <div class="section-body">
+    <p>This last section is framed warmly, not as rules. You are being invited to help protect the musical intelligence of the film. Your work is not simply to find great music. Each cue must have a job. Each silence must too. The goal is for every piece of music, every silence, every source cue and every score instinct to earn its place in the architecture.</p>
+
+    <div class="architecture-block">
+      <p class="box-label">Ten Architectural Questions / Hold these alongside everything above</p>
+      <ul class="question-list">
+        <li><strong>1. A cue should have a job.</strong> Every piece of music should be tested against a function. Is it opening a time portal? Possessing the scene? Releasing the scene? Misleading us? Carrying an archive? Creating irony? Making Antoinette freer? Making Rochester smaller? If it does not have a job, it does not belong.</li>
+        <li><strong>2. The achronology map.</strong> Because the film is period but sonically achronological and sometimes anachronistic, you can help us map where anachronism is allowed to enter and why. The 90s dancehall forest scene, Rage Against the Machine rhythm, X-Ray Spex into England, Robert Hood in the fire sequence, the dub title cards: these are structural interventions. They should feel like a deliberate time-collapse system, not random cool references.</li>
+        <li><strong>3. Music rights as creative architecture.</strong> Help us sort cues into categories: dream cue, clearance candidate, temp-only reference, soundalike or interpolation possibility, composer-response cue, traditional or field or archival material requiring ethical clearance, sacred or ceremonial material requiring extra care. The aim is to keep the imagination large while keeping the production grounded.</li>
+        <li><strong>4. Sacred music and ritual sound ethics.</strong> Because the film touches Obeah, Vodou, indigenous Caribbean traces, work songs, ancestral voice, ritual water, and spiritual possession, please be alert to extraction. Some sounds may not be for use. Some may require consultation. Some may be better approached through original composition, structure, rhythm, breath, or texture rather than direct recording. This protects the film spiritually and ethically.</li>
+        <li><strong>5. Diegetic instability.</strong> Some music in this film may not clearly belong inside or outside the scene. Is the character hearing it? Is the land producing it? Is it memory? Is it score? Is it ancestral? Is it archive? That ambiguity is powerful when handled deliberately. The world is porous.</li>
+        <li><strong>6. Silence as a supervised element.</strong> Music supervision is also knowing when music should not enter. Silence, suction, drop-out, withheld bass, missing song, incomplete melody, absence: these all belong to THE MISSING. Help us know where music must leave space for the film to breathe or haunt.</li>
+        <li><strong>7. Lyric intelligence.</strong> Because the film is so precise, lyrics matter. If a track has lyrics, please consider whether the lyric is too literal, too clever, too on-the-nose, politically wrong, regionally wrong, or secretly brilliant. Lyrics can deepen the spell or cheapen it.</li>
+        <li><strong>8. On-set music as performance tool.</strong> Some music may need to be used on set even if it never appears in the final film. For movement, sex, trance, fight, ritual, grief, or MASTER OF NONE, you can help identify tracks that activate the actors' bodies. This is music supervision as rehearsal and performance architecture.</li>
+        <li><strong>9. Sonic POV.</strong> Think of music differently depending on whose world we are in. Rochester's sonic world may be intrusive, fevered, over-saturated, paranoid, formal, then broken. Antoinette's may be porous, environmental, melodic, embodied, then stripped and finally released. Christophine's may carry rhythm, protection, work, ritual, and authority.</li>
+        <li><strong>10. Regional specificity guardrail.</strong> Help us prevent sonic flattening. Jamaica is not the Windward Islands. Martinique is not Haiti. Dominica is not Barbados. The wider Black Atlantic is not interchangeable. The film can be pan-Caribbean and pan-Black without becoming generic.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-mark">Key Script Anchors</span></div>
+
+<div class="anchor-list">
+  <p class="box-label">A Working List / Sonic Moments to Stay Alive To</p>
+  <p class="anchor-intro">This list is not exhaustive. We will and can of course think of sonic presence beyond what is named here. These are the anchors, not the limits. Treat them as the ground from which you can wander.</p>
+  <ul>
+    <li><strong>Scene 1.</strong> Coulibri burning. Roar, bodies, horses, torches. Origin fire.</li>
+    <li><strong>Scene 2.</strong> Sargasso Sea. Undertone of 1000 voices.</li>
+    <li><strong>Scene 3.</strong> Rochester fever dream. Breath and sweat.</li>
+    <li><strong>Scene 4.</strong> First title card. Searing dub baseline.</li>
+    <li><strong>Scenes 8–10.</strong> Quiet, insect hum, candle, moonlight, dance, first sex.</li>
+    <li><strong>Scene 17.</strong> Hammock at sunset. Red-sky foreshadowing. The body remembers forward.</li>
+    <li><strong>Scene 18.</strong> Sweat as water. Erotic sound. Deep night.</li>
+    <li><strong>Scene 21.</strong> Pool vibration. Dub baseline. Daniel emerging.</li>
+    <li><strong>Scene 24.</strong> Sex heard over forest. Bed sheets tearing. Pain and pleasure.</li>
+    <li><strong>Scene 26.</strong> Christophine pounding mortar. Speak-singing.</li>
+    <li><strong>Scene 28.</strong> Amelie humming and singing "white cockroach."</li>
+    <li><strong>Scene 37.</strong> Daniel's house. Laughter. Thermal oversaturation. Lil Yachty style vocal cry.</li>
+    <li><strong>Scene 39.</strong> Water drumming. Women washing white linen. Christophine's work song.</li>
+    <li><strong>Scenes 41–42.</strong> "QUI EST LA?" title card. Dub delay and reverb.</li>
+    <li><strong>Scene 44.</strong> Children's chant consumed by nature.</li>
+    <li><strong>Scene 45.</strong> Christophine lullaby.</li>
+    <li><strong>Scene 56.</strong> Christophine bursts in to wake Young Antoinette. Amber light.</li>
+    <li><strong>Scene 58.</strong> Coulibri fire. Scream. Sound sucked out. Sound rushing back.</li>
+    <li><strong>Scenes 60 / 70 / 77.</strong> Deep red screen moments. High, mid, low screaming tones.</li>
+    <li><strong>Scenes 61–64.</strong> Potion. Long dub bassline drop. Atlantians. Water. Voices. Vomit. White powder.</li>
+    <li><strong>Scene 63.</strong> 90s dancehall movement slowed to 80 BPMs.</li>
+    <li><strong>Scenes 70 / 71.</strong> Fight. Laugh to rage. Screaming. Christophine singing to Antoinette.</li>
+    <li><strong>Scene 76.</strong> Christophine underwater scream. King Tubby deep dub. Whale-song register.</li>
+    <li><strong>Scene 78.</strong> Spade attacking earth. Rochester's dirt mask.</li>
+    <li><strong>Scenes 81–86.</strong> Corset. Rain. Sweat. Multiple voices. MASTER OF NONE. Rage Against the Machine rhythm.</li>
+    <li><strong>Scene 87.</strong> Arawakan ancestor voice. Rain. Water.</li>
+    <li><strong>Scene 90.</strong> X-Ray Spex "Oh Bondage! Up Yours" into England.</li>
+    <li><strong>Scenes 99–103.</strong> Fire. Archive. Robert Hood "Minus." Voices becoming beat. Screams. Bertha call. Thermal disappearance. Final jump. Orange-red moon.</li>
+    <li><strong>Scenes 104–105.</strong> Clear sea. Antoinette's final laugh. The flamboyant tree. The laugh of arrival.</li>
+  </ul>
+</div>
+
+<div class="private-ref">
+  <p class="box-label">Private Internal Reference / Not for Circulation</p>
+  <p>One quiet pointer for your thinking, held carefully and not for wider circulation: <a href="https://afrosonics.tumblr.com" target="_blank" rel="noopener">Harmony Holiday's Afrosonics archive</a>. A deep Black sonic repository of music, fragments, recordings, interviews, memory, and cultural atmosphere. Useful less as a "source list" than as a model for how sound can behave as <strong>archive, collage, inheritance, interruption, and survival</strong>.</p>
+  <p>Connect this to THE MISSING and Cosmic Archaeology: fragments as surviving material, fragments as code, fragments as pathways between past, present, and future knowledge. Treat it as a living sonic repository and a possible orientation point, not a public link to share.</p>
+  <span class="ref-stamp">Internal reference / discreet / not for circulation</span>
+</div>
+
+<div class="closing">
+  <p>This document is the first bridge. The world is bigger than any single brief can hold, and we will keep building it together. Bring me the obvious things. Bring me the buried ones. Bring me the fragment, the unfinished take, the song that might not even be a song, the breath that became a track, the bassline that arrived in a dream. Bring me what you cannot explain.</p>
+  <p>The sonic register of this film is equal to the visual register. It is not décor. It is architecture. I am leading it firmly, and I am inviting you in fully. There is room here. There is real room.</p>
+  <p>Antoinette flies home at the end. Every sound we choose, every silence we hold, is a step toward that homecoming. Hold the work with that weight. I am looking forward to what you bring.</p>
+
+  <div class="sign">
+    <p class="name">JENN NKIRU</p>
+    <p class="date">Wednesday 20th May 2026</p>
+  </div>
+</div>
+
+<div class="companion">
+  <p class="box-label">Companion Documents and References</p>
+  <ul>
+    <li>
+      <strong><a href="https://gztwzwf97v-ui.github.io/wide-sargasso-sea_sonicresearchbrief-/" target="_blank" rel="noopener">Errol's Sonic Research Brief</a></strong>
+      <span class="meta">Touching Bass / Hyper-focused dub research and the sonic pool</span>
+      <span class="caveat">Read this for the deep dub spine. Your brief is the wider net that holds it.</span>
+    </li>
+    <li>
+      <strong><a href="https://gztwzwf97v-ui.github.io/wide-sargasso-sea_visualresearchbrief/" target="_blank" rel="noopener">Darol's Visual Research Brief</a></strong>
+      <span class="meta">Visual, theoretical, sonic research / Companion world-view document</span>
+      <span class="caveat">Useful for further grounding in my world-view of the film. The visual and the sonic share the same logic here.</span>
+    </li>
+    <li>
+      <strong><a href="https://open.spotify.com/playlist/0DoTewEsMS9FcTobho4UEq?si=zQsAG1OvQGyb8TC3AU0QEQ&amp;pi=C26jngfvRJWoq" target="_blank" rel="noopener">Wide Sargasso Sea Working Playlist</a></strong>
+      <span class="meta">My ongoing Spotify gathering / not a brief, not a destination</span>
+      <span class="caveat">A playlist I have been quietly building for the world of the film. Treat it as a window into where my ear has been, not as a frame to think inside. <strong>Please do not let it collapse you.</strong> I want you thinking broadly, casting wider than this. The playlist is one current. The film is the ocean.</span>
+    </li>
+    <li>
+      <strong><a href="https://afrosonics.tumblr.com" target="_blank" rel="noopener">Afrosonics Archive</a></strong>
+      <span class="meta">Private internal reference / Not for circulation</span>
+      <span class="caveat">As above. Held quietly. A model for how sound can behave as archive and inheritance, not a public link to circulate.</span>
+    </li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>
